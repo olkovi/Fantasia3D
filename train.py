@@ -7,6 +7,7 @@
 # without an express license agreement from NVIDIA CORPORATION or 
 # its affiliates is strictly prohibited.
 
+import sys
 import os
 import time
 import argparse
@@ -16,6 +17,7 @@ import numpy as np
 import torch
 import nvdiffrast.torch as dr
 import xatlas
+
 
 # Import data readers / generators
 from dataset.dataset_mesh import DatasetMesh
@@ -548,7 +550,7 @@ if __name__ == "__main__":
     parser.add_argument('-rm', '--ref_mesh', type=str)
     parser.add_argument('-bm', '--base-mesh', type=str, default=None)
     parser.add_argument('--validate', type=bool, default=True)
-    parser.add_argument("--local_rank", type=int, default=0, help="For distributed training: local_rank")
+    parser.add_argument("--local_rank", "--local-rank", type=int, default=0, help="For distributed training: local_rank")
     parser.add_argument("--seed", type=int, default=42, help="A seed for reproducible training.")
     parser.add_argument("--add_directional_text", action='store_true', default=False)
     parser.add_argument('--mode', default='geometry_modeling', choices=['geometry_modeling', 'appearance_modeling'])
