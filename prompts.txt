@@ -1,15 +1,3 @@
 magnolia tree&sakura tree
-carriage&car
-hindu temple&gothic cathedral
-man standing&robot standing
-modern yacht&atakebune ship, japaneese, medeival
-chair&gothic throne, royal
-crab animal&ant animal
-lego animal&animal
-gopher animal&kangaroo animal
 horse animal&horse skeleton
-bird animal&dinosaur animal
-space marine&ww2 soldier
 bicycle&motorcycle
-minotaur&dwarf
-mermaid&seahorse

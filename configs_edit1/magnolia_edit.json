@@ -27,7 +27,7 @@
     "train_background": "black",
     "validate": "true",
     "mesh_scale": 2.4,
-    "out_dir": "magnolia_edit.json",
+    "out_dir": "magnolia_edit",
     "text": "magnolia tree",
     "seed": 42,
     "add_directional_text": "false",

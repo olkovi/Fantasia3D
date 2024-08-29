@@ -25,7 +25,7 @@
     "train_background": "black",
     "validate": "true",
     "mesh_scale": 2.4,
-    "out_dir": "sakura.json",
+    "out_dir": "sakura",
     "text": "sakura tree",
     "seed": 42,
     "add_directional_text": "false",

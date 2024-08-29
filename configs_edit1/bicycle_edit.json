@@ -27,7 +27,7 @@
     "train_background": "black",
     "validate": "true",
     "mesh_scale": 2.4,
-    "out_dir": "bicycle_edit.json",
+    "out_dir": "bicycle_edit",
     "text": "bicycle",
     "seed": 42,
     "add_directional_text": "false",

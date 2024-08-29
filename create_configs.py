@@ -48,25 +48,25 @@ for orig1_prompt, orig2_prompt in prompt_pairs:
     
     # Modify chair_config['text'] for each pair
     chair_config["text"] = orig1_prompt
-    chair_config["out_dir"] = orig1_filename 
+    chair_config["out_dir"] = firstword1
     with open(os.path.join("configs_orig1", orig1_filename), "w") as f:
         json.dump(chair_config, f, indent=4)  # Write base config
 
     chair_config["text"] = orig2_prompt
-    chair_config["out_dir"] = orig2_filename
+    chair_config["out_dir"] = firstword2
     with open(os.path.join("configs_orig2", orig2_filename), "w") as f:
         json.dump(chair_config, f, indent=4)  # Write edit config
 
 
     chair_config["text"] = orig2_prompt
-    chair_config["out_dir"] = edit2_filename
+    chair_config["out_dir"] = firstword2 +"_edit"
     chair_config["sdf_init_shape"] ="custom_mesh"
     chair_config["base_mesh"]=os.path.join("out",firstword1,"dmtet_mesh","mesh.obj").replace("\\","/")
     with open(os.path.join("configs_edit2", edit2_filename), "w") as f:
         json.dump(chair_config, f, indent=4)  # Write edit config
     
     chair_config["text"] = orig1_prompt
-    chair_config["out_dir"] = edit1_filename
+    chair_config["out_dir"] = firstword1 +"_edit"
     chair_config["sdf_init_shape"] ="custom_mesh",
     chair_config["base_mesh"]=os.path.join("out",firstword2,"dmtet_mesh","mesh.obj").replace("\\","/")
     with open(os.path.join("configs_edit1", edit1_filename), "w") as f:
