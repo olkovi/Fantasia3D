@@ -1,0 +1,45 @@
+{
+    "mode": "geometry_modeling",
+    "sdf_init_shape": [
+        "custom_mesh"
+    ],
+    "sdf_init_shape_scale": [
+        0.65,
+        0.65,
+        0.65
+    ],
+    "translation_y": -0.3,
+    "random_textures": "true",
+    "iter": 4000,
+    "coarse_iter": 2000,
+    "save_interval": 100,
+    "train_res": [
+        512,
+        512
+    ],
+    "batch": 16,
+    "dmtet_grid": 256,
+    "display": [
+        {
+            "bsdf": "normal"
+        }
+    ],
+    "train_background": "black",
+    "validate": "true",
+    "mesh_scale": 2.4,
+    "out_dir": "carriage_edit.json",
+    "text": "carriage",
+    "seed": 42,
+    "add_directional_text": "false",
+    "camera_random_jitter": 0.4,
+    "fovy_range": [
+        25.71,
+        45
+    ],
+    "elevation_range": [
+        -10,
+        45
+    ],
+    "guidance_weight": 50,
+    "base_mesh": "out/car/dmtet_mesh/mesh.obj"
+}
