@@ -2,9 +2,9 @@
     "mode": "geometry_modeling",
     "sdf_init_shape": "ellipsoid",
     "sdf_init_shape_scale": [
-        0.65,
-        0.65,
-        0.65
+        0.6,
+        0.6,
+        0.6
     ],
     "translation_y": -0.3,
     "random_textures": "true",
@@ -26,7 +26,7 @@
     "validate": "true",
     "mesh_scale": 2.4,
     "out_dir": "sakura",
-    "text": "sakura tree",
+    "text": "(full frame), full body, high resolution, best quality, white background, realistic, sakura tree",
     "seed": 42,
     "add_directional_text": "false",
     "camera_random_jitter": 0.4,

@@ -15,7 +15,7 @@ os.makedirs("configs_edit2", exist_ok=True)
 chair_config = {
 "mode": "geometry_modeling",
 "sdf_init_shape": "ellipsoid",
-"sdf_init_shape_scale": [0.65, 0.65, 0.65],
+"sdf_init_shape_scale": [0.6, 0.6, 0.6],
 "translation_y": -0.3,
 "random_textures": "true",
 "iter": 4000,
@@ -38,6 +38,8 @@ chair_config = {
 "guidance_weight": 50
 }  # Load chair.json into a Python dictionary
 
+preprompt = "(full frame), full body, high resolution, best quality, white background, realistic, "
+
 for orig1_prompt, orig2_prompt in prompt_pairs:
     firstword1 = orig1_prompt.split()[0].split(" ")[0]
     firstword2 = orig2_prompt.split()[0].split(" ")[0]
@@ -47,25 +49,25 @@ for orig1_prompt, orig2_prompt in prompt_pairs:
     edit2_filename = firstword2 + "_edit" + ".json"
     
     # Modify chair_config['text'] for each pair
-    chair_config["text"] = orig1_prompt
+    chair_config["text"] = preprompt + orig1_prompt
     chair_config["out_dir"] = firstword1
     with open(os.path.join("configs_orig1", orig1_filename), "w") as f:
         json.dump(chair_config, f, indent=4)  # Write base config
 
-    chair_config["text"] = orig2_prompt
+    chair_config["text"] = preprompt + orig2_prompt
     chair_config["out_dir"] = firstword2
     with open(os.path.join("configs_orig2", orig2_filename), "w") as f:
         json.dump(chair_config, f, indent=4)  # Write edit config
 
 
-    chair_config["text"] = orig2_prompt
+    chair_config["text"] = preprompt + orig2_prompt
     chair_config["out_dir"] = firstword2 +"_edit"
     chair_config["sdf_init_shape"] ="custom_mesh"
     chair_config["base_mesh"]=os.path.join("out",firstword1,"dmtet_mesh","mesh.obj").replace("\\","/")
     with open(os.path.join("configs_edit2", edit2_filename), "w") as f:
         json.dump(chair_config, f, indent=4)  # Write edit config
     
-    chair_config["text"] = orig1_prompt
+    chair_config["text"] = preprompt + orig1_prompt
     chair_config["out_dir"] = firstword1 +"_edit"
     chair_config["sdf_init_shape"] ="custom_mesh",
     chair_config["base_mesh"]=os.path.join("out",firstword2,"dmtet_mesh","mesh.obj").replace("\\","/")
