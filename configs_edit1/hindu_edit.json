@@ -1,6 +1,6 @@
 {
     "mode": "geometry_modeling",
-    "sdf_init_shape": "ellipsoid",
+    "sdf_init_shape": "custom_mesh",
     "sdf_init_shape_scale": [
         0.6,
         0.6,
@@ -25,8 +25,8 @@
     "train_background": "black",
     "validate": "true",
     "mesh_scale": 2.4,
-    "out_dir": "out/negtest_'full frame, (full body), multiple views, 3d model '/motorcycle",
-    "text": "full frame, (full body), multiple views, 3d model motorcycle",
+    "out_dir": "out/negtest_'full frame, (full body), multiple views, 3d model '/hindu_edit",
+    "text": "full frame, (full body), multiple views, 3d model hindu temple",
     "seed": 42,
     "add_directional_text": "false",
     "camera_random_jitter": 0.4,
@@ -38,5 +38,6 @@
         -10,
         45
     ],
-    "guidance_weight": 50
+    "guidance_weight": 50,
+    "base_mesh": "out/gothic/dmtet_mesh/mesh.obj"
 }

@@ -48,7 +48,8 @@ class StableDiffusion(nn.Module):
         elif self.sd_version == '1.5':
             model_key = "runwayml/stable-diffusion-v1-5"
         if self.mode == 'geometry_modeling':
-            negative_text = "low quality"
+            negative_text = "(cropped), close up, portrait, low quality"
+            print(negative_text)#"low quality"
         if self.mode == 'appearance_modeling':
             negative_text = "shadow, oversaturated, low quality, unrealistic" 
         self.vae = AutoencoderKL.from_pretrained(model_key, subfolder="vae",torch_dtype=torch.float16).to(self.device)
