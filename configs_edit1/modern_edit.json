@@ -25,7 +25,7 @@
     "train_background": "black",
     "validate": "true",
     "mesh_scale": 2.4,
-    "out_dir": "out/negtest_'full frame, 3d model '/modern_edit",
+    "out_dir": "out\\negtest_'full frame, 3d model '\\modern_edit",
     "text": "full frame, 3d model modern yacht",
     "seed": 42,
     "add_directional_text": "false",
