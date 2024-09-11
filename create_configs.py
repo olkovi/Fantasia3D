@@ -38,18 +38,34 @@ chair_config = {
 "guidance_weight": 50
 }  # Load chair.json into a Python dictionary
 
-preprompt = "full frame, (full body), multiple views, 3d model "
+preprompt = "full frame, 3d model "
 outfold = os.path.join("out","negtest_" + "\'"+preprompt+"\'").replace(":","_")
 #os.makedirs(outfold, exist_ok=True)
 
+word_list=[]
+
 for orig1_prompt, orig2_prompt in prompt_pairs:
-    firstword1 = orig1_prompt.split()[0].split(" ")[0]
-    firstword2 = orig2_prompt.split()[0].split(" ")[0]
+    split1 = orig1_prompt.split()
+    split2 = orig2_prompt.split()
+    if split1[0] not in word_list:
+        firstword1 = split1[0]
+        word_list.append(firstword1)
+    else:
+        firstword1 = split1[0] + " " + split1[1]
+        word_list.append(firstword1)
+    
+    if split2[0] not in word_list:
+        firstword2 = split2[0]
+        word_list.append(firstword2)
+    else:
+        firstword2 = split2[0] + " " + split2[1]
+        word_list.append(firstword2)
+    
     orig1_filename = firstword1 + ".json"
     orig2_filename = firstword2 + ".json"
     edit1_filename = firstword1 + "_edit" + ".json"
     edit2_filename = firstword2 + "_edit" + ".json"
-    
+
     # Modify chair_config['text'] for each pair
     chair_config["text"] = preprompt + orig1_prompt
     chair_config["out_dir"] = os.path.join(outfold, firstword1)
@@ -68,14 +84,14 @@ for orig1_prompt, orig2_prompt in prompt_pairs:
     chair_config["base_mesh"]=os.path.join("out",firstword1,"dmtet_mesh","mesh.obj").replace("\\","/")
     with open(os.path.join("configs_edit2", edit2_filename), "w") as f:
         json.dump(chair_config, f, indent=4)  # Write edit config
-    
+
     chair_config["text"] = preprompt + orig1_prompt
     chair_config["out_dir"] = os.path.join(outfold, firstword1) +"_edit"
     chair_config["sdf_init_shape"] ="custom_mesh"
     chair_config["base_mesh"]=os.path.join("out",firstword2,"dmtet_mesh","mesh.obj").replace("\\","/")
     with open(os.path.join("configs_edit1", edit1_filename), "w") as f:
         json.dump(chair_config, f, indent=4)  # Write edit config
-    
+
     chair_config["sdf_init_shape"] = "ellipsoid"
     del chair_config["base_mesh"]
 print(chair_config["out_dir"])

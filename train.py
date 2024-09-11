@@ -46,7 +46,7 @@ import random
 import imageio
 import os.path as osp
 
-
+imageio.plugins.freeimage.download()
 ###############################################################################
 # Mix background into a dataset image
 ###############################################################################

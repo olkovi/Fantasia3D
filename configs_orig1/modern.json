@@ -15,7 +15,7 @@
         512,
         512
     ],
-    "batch": 16,
+    "batch": 12,
     "dmtet_grid": 256,
     "display": [
         {
@@ -25,8 +25,8 @@
     "train_background": "black",
     "validate": "true",
     "mesh_scale": 2.4,
-    "out_dir": "out/negtest_'full frame, (full body), multiple views, 3d model '/modern",
-    "text": "full frame, (full body), multiple views, 3d model modern yacht",
+    "out_dir": "out/negtest_'full frame, 3d model '/modern",
+    "text": "full frame, 3d model modern yacht",
     "seed": 42,
     "add_directional_text": "false",
     "camera_random_jitter": 0.4,
