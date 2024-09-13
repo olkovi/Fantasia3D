@@ -4,3 +4,4 @@ out1
 out_old
 __pycache__
 configs*
+data/meshediting_*
