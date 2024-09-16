@@ -3,20 +3,34 @@ import os
 
 # --- 1. Load Prompt Pairs ---
 textfiles = []
-for file in os.listdir("./data/meshediting_results_1"):
+path = "./data/meshediting_results_1"
+for file in os.listdir(path):
     if file.endswith(".txt"):
-        textfiles.append(os.path.join("./data/meshediting_results_1", file))
+        textfiles.append(os.path.join(path, file))
 
 meshfiles = []
-for file in os.listdir("./data/meshediting_results_1"):
+for file in os.listdir(path):
     if file.endswith(".obj"):
-        meshfiles.append(os.path.join("./data/meshediting_results_1", file))
+        meshfiles.append(os.path.join(path, file))
 originals = []
 prompts = []
+origlist = []
 for textfile in textfiles:
     with open(textfile, "r") as f:
         lines = f.readlines()
-        originals.append(lines[0].split(",")[0].replace(" ","_"))
+        orig = lines[0].split(" ")[0].replace(",","").replace("\n","")
+        i = 0
+        while orig in origlist:
+            i+=1
+            orig = orig + ("_"+lines[0].split(" ")[i].replace(",","").replace("\n",""))
+
+        if orig not in origlist:
+            originals.append(orig)
+            origlist.append(orig)
+        else:
+            orig = orig + "_" + lines[0].split(" ")[1]
+            originals.append(orig)
+            origlist.append(orig)
         prompts.append(lines[1])
         #prompts.append = [line.strip().split("&") for line in f]  # Read lines, split by comma
 
