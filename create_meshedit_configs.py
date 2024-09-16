@@ -11,11 +11,12 @@ meshfiles = []
 for file in os.listdir("./data/meshediting_results_1"):
     if file.endswith(".obj"):
         meshfiles.append(os.path.join("./data/meshediting_results_1", file))
-
+originals = []
 prompts = []
 for textfile in textfiles:
     with open(textfile, "r") as f:
         lines = f.readlines()
+        originals.append(lines[0].split(",")[0].replace(" ","_"))
         prompts.append(lines[1])
         #prompts.append = [line.strip().split("&") for line in f]  # Read lines, split by comma
 
@@ -57,20 +58,21 @@ outfold = os.path.join("out","negtest_" + "\'"+preprompt+"\'").replace(":","_")
 
 word_list=[]
 import copy
-for orig1_prompt, filename, meshfile in zip(prompts, textfiles, meshfiles):
+for orig1_prompt, filename, original, meshfile in zip(prompts, textfiles, originals, meshfiles):
 
-    split1 = orig1_prompt.split()
+    split1 = orig1_prompt.split(",")
     configs = []
     if split1[0] not in word_list:
-        firstword1 = split1[0]
+        firstword1 = split1[0].replace(' ','_')
         word_list.append(firstword1)
     else:
-        firstword1 = split1[0] + " " + split1[1]
+        firstword1 = (split1[0] + " " + split1[1]).replace('',' ')
         word_list.append(firstword1)
     
-    
+    print(meshfile)
+    print(orig1_prompt)
 
-    edit1_filename = firstword1 + "_meshedit" + ".json"
+    edit1_filename = original + "_to_" + firstword1 + "_meshedit" + ".json"
 
     chair_config["text"] = preprompt + orig1_prompt
     chair_config["out_dir"] = os.path.join(outfold, firstword1) +"_meshedit"
