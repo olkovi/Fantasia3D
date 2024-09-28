@@ -1,0 +1,10 @@
+arab_warrior    duck        iron_throne               marine_edit          tailcoat
+astronaut_edit  dwarf_edit  jedi_man                  pony                 werewolf_edit
+avocado         elf         jedi_woman_fight_pose     princess
+cat_skeleton    globe       jedi_woman_straight_pose  robot_fight_pose
+clown           groot       lara_croft                robot_sitting
+dragon_edit     hunter      marble_statue             robot_standing_edit
+
+/gpfs/gpfs0/3ddl/projects/a3d/data/src/v2.0.0/editing/robot_sitting/mvedit.transform/mesh/mesh.obj
+
+/meshedit_appearance/<scene>/dmtet_mesh
