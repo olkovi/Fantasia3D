@@ -1,0 +1,43 @@
+{
+    "mode": "geometry_modeling",
+    "sdf_init_shape": "custom_mesh",
+    "sdf_init_shape_scale": [
+        0.6,
+        0.6,
+        0.6
+    ],
+    "translation_y": -0.3,
+    "random_textures": "true",
+    "iter": 3000,
+    "coarse_iter": 300,
+    "save_interval": 100,
+    "train_res": [
+        512,
+        512
+    ],
+    "batch": 10,
+    "dmtet_grid": 256,
+    "display": [
+        {
+            "bsdf": "normal"
+        }
+    ],
+    "train_background": "black",
+    "validate": "true",
+    "mesh_scale": 2.4,
+    "out_dir": "out/meshedit/m2_00_cat_to_skeleton_of_the_cat_meshedit",
+    "text": "full frame, 3d model skeleton of the cat",
+    "seed": 42,
+    "add_directional_text": "false",
+    "camera_random_jitter": 0.4,
+    "fovy_range": [
+        25.71,
+        45
+    ],
+    "elevation_range": [
+        -10,
+        45
+    ],
+    "guidance_weight": 50,
+    "base_mesh": "./data/meshediting_results_2/00_src.obj"
+}
